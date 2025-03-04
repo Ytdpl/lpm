@@ -1,0 +1,59 @@
+# Basic information of the package
+pkgname=bash
+pkgver=5.2.037-1
+pkgdesc='The GNU Bourne Again SHell'
+license=('GPL-3.0-or-later')
+upstreamurl='https://www.gnu.org/software/bash/bash.html'
+
+# Dependencies
+reqdeps=(
+    binutils
+    bison
+    coreutils
+    diffutils
+    gawk
+    gcc
+    glibc
+    grep
+    make
+    ncurses
+    patch
+    readline
+    sed
+    texinfo
+)
+recdeps=()
+optdeps=()
+rundeps=()
+testdeps=(
+    expect
+    shadow
+)
+provide=(
+    bash
+    bashbug
+    sh
+)
+location=(
+    /usr/include/bash
+    /usr/lib/bash
+    /usr/share/doc/bash-${pkgver}
+)
+source=(
+    https://ftp.gnu.org/gnu/bash/bash-5.2.37.tar.gz{,.sig}
+)
+
+
+# Build
+build() {
+    ./configure --prefix=/usr     \
+        --without-bash-malloc     \
+        --with-installed-readline \
+        bash_cv_strtold_broken=no \
+        --docdir=/usr/share/doc/bash-${pkgver}
+    make
+}
+check()
+install() {
+    make install
+}
