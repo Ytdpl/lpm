@@ -44,7 +44,7 @@ source=(
 )
 
 
-# Build
+# Build (just as an example)
 build() {
     ./configure --prefix=/usr     \
         --without-bash-malloc     \
@@ -53,7 +53,9 @@ build() {
         --docdir=/usr/share/doc/bash-${pkgver}
     make
 }
-check()
+check() {
+    make check
+}
 install() {
     make install
 }
