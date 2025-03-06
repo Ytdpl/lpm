@@ -31,8 +31,6 @@ An English version of README.md will be provided later on.
 
 ```
 
-目前觉得`lpm.d`没啥用，不过先留着当未来拓展接口也行。
-
 其中的`pkginfo`提供包的基本信息和一般构建方法，基本会参考`Arch Linux`的`PKGBUILD`文件编写；`buildlog`记录编译过程中的全部记录供参考，`errorlog`将编译过程中的错误消息单独记录下来。
 
 `/usr/src`下的`lpm`文件夹是可选的，可以合并或者为`lpm`单独设置源码夹。
